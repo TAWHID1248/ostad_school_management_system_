@@ -54,5 +54,5 @@ class StudentDeleteViews(DeleteView):
         Call the delete() method on the fetched object and then redirect to the
         success URL.
         """
-        messages.warning(self.request, "Student deleted.")
+        messages.error(self.request, "Student deleted.")
         return super().delete(request, *args, **kwargs)
