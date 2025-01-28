@@ -1,0 +1,28 @@
+{% extends 'student/base.html' %}
+    
+
+{% block content %}
+    <div class="container">
+      <h1 class="h1 text-center mb-3 text-light p-3 bg-primary text-wrap">All Student List</h1>
+    <div class="row mb-5">
+        {% for student in students %}
+        <div class="col-4 mb-4 ">
+          <div class="card border-dark ">
+            <div class="card-body">
+              <h5 class="card-title badge bg-primary text-wrap" style="width: 6rem;">{{student.name}}</h5>
+              <p class="card-text fw-bold">Course Name: {{student.course}}</p>
+              <p class="card-text fst-italic">Email: {{student.email}}</p>
+              <p class="card-text fst-italic">Phone Number: {{student.phone}}</p>
+              <a href="{% url 'student-update' id=student.id %}" class="btn btn-outline-warning btn-sm">Update</a>
+              <a href="{% url 'student-delete' id=student.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+{% endblock %}
+
+
+
